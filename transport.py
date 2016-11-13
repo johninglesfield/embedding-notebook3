@@ -171,7 +171,7 @@ def corner_transmission(E,ham,ovlp,n_emb,in_ovlp,out_ovlp,input_channel,
         input_current=0.5*(r2-r1)*kz_input
         sigma_input=-1j*kz_input/(r2-r1)
         sigma_output=-1j*kz_output/(r2-r1)
-        psi_input=0.5*in_ovlp[input_channel,:]
+        psi_input=0.5*(r2-r1)*in_ovlp[input_channel,:]
         green=corner_green(E,ham,ovlp,n_emb,in_ovlp,out_ovlp)
         phi=-2.0*1j*sigma_input.imag*np.dot(green,psi_input)
         Psi=np.dot(phi,out_ovlp[output_channel,])
